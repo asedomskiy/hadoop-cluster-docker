@@ -45,6 +45,7 @@ options {
                         sh './start-container.sh'
                     }
             }
+            }
         stage('Start hadoop') {
             steps {
                 dir("hadoop-cluster-docker/config") {
