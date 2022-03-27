@@ -29,6 +29,3 @@ do
 	                kiwenlau/hadoop:1.0 &> /dev/null
 	i=$(( $i + 1 ))
 done 
-
-# get into hadoop master container
-docker exec -it hadoop-master bash
