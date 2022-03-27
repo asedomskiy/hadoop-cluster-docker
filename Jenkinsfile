@@ -44,19 +44,19 @@ options {
                 dir("hadoop-cluster-docker") {
                         sh './start-container.sh'
                     }
-                sh 'docker exec -it hadoop-master bash'
+                sh 'docker exec hadoop-master bash'
 				}
             }
         stage('Start hadoop') {
             steps {
-                dir("hadoop-cluster-docker") {
+                dir("hadoop-cluster-docker/config") {
                         sh './start-hadoop.sh'
                     }
 				}
             }
         stage('Run wordcount') {
             steps {
-               dir("hadoop-cluster-docker") {
+               dir("hadoop-cluster-docker/config") {
                         sh './run-wordcount.sh'
                     }
 				}
