@@ -39,6 +39,7 @@ options {
         stage('Start container') {
             steps {
                 sh 'cd hadoop-cluster-docker'
+                sh 'cd hadoop-cluster-docker'
                 sh 'ls -la'
                 sh './start-container.sh'
 				}
