@@ -44,6 +44,7 @@ options {
                 dir("hadoop-cluster-docker") {
                         sh './start-container.sh'
                     }
+                sh 'docker exec -it hadoop-master bash'
 				}
             }
         stage('Start hadoop') {
