@@ -8,7 +8,7 @@ options {
         stage('Configure docker') {
             steps {
                 sh 'chmod 757 /var/run/docker.sock'
-                sh 'docker run --privileged=true -v /var/run/docker.sock:/var/run/docker.sock -it'
+                sh 'docker run -v /var/run/docker.sock:/var/run/docker.sock -ti docker'
 				}
 			}
         stage('Pull docker image') {
