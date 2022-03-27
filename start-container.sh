@@ -22,7 +22,7 @@ while [ $i -lt $N ]
 do
 	docker rm -f hadoop-slave$i &> /dev/null
 	echo "start hadoop-slave$i container..."
-	docker run -itd \
+	docker run  \
 	                --net=hadoop \
 	                --name hadoop-slave$i \
 	                --hostname hadoop-slave$i \
