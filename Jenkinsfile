@@ -41,17 +41,23 @@ options {
                 sh 'ln -s /var/jenkins_home/workspace/hadoop-build_master/hadoop-cluster-docker ~/clusterPath'
                 sh 'cd ~/clusterPath'
                 sh 'ls -la'
-                sh './start-container.sh'
+                dir("hadoop-cluster-docker") {
+                        sh './start-container.sh'
+                    }
 				}
             }
         stage('Start hadoop') {
             steps {
-                sh './start-hadoop.sh'
+                dir("hadoop-cluster-docker") {
+                        sh './start-hadoop.sh'
+                    }
 				}
             }
         stage('Run wordcount') {
             steps {
-               sh './run-wordcount.sh'
+               dir("hadoop-cluster-docker") {
+                        sh './run-wordcount.sh'
+                    }
 				}
 			}
 		}
