@@ -7,7 +7,7 @@ options {
     stages {
         stage('Pull docker image') {
             steps {
-                sh 'sudo docker pull kiwenlau/hadoop:1.0'
+                sh 'docker pull kiwenlau/hadoop:1.0'
 				}
 			}
         stage('Clone github repository') {
@@ -20,10 +20,10 @@ options {
             steps {
                 script {
                     try {
-                        sh 'sudo docker network rm hadoop'
+                        sh 'docker network rm hadoop'
                         }
                     finally {
-                    sh 'sudo docker network create --driver=bridge hadoop'
+                    sh 'docker network create --driver=bridge hadoop'
                         }
 				    }
                 }
@@ -31,7 +31,7 @@ options {
         stage('Start container') {
             steps {
                 sh 'cd hadoop-cluster-docker'
-                sh 'sudo ./start-container.sh'
+                sh './start-container.sh'
 				}
             }
         stage('Start hadoop') {
