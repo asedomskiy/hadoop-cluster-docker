@@ -38,8 +38,8 @@ options {
             }
         stage('Start container') {
             steps {
-                sh 'cd hadoop-cluster-docker'
-                sh 'cd hadoop-cluster-docker'
+                sh 'ln -s /var/jenkins_home/workspace/hadoop-build_master/hadoop-cluster-docker ~/clusterPath'
+                sh 'cd ~/clusterPath'
                 sh 'ls -la'
                 sh './start-container.sh'
 				}
