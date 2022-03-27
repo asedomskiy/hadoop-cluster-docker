@@ -5,6 +5,12 @@ options {
         skipDefaultCheckout(true)
 	}
     stages {
+        stage('Configure docker') {
+            steps {
+                sh 'chmod 757 /var/run/docker.sock'
+                sh 'docker run --privileged=true -v /var/run/docker.sock:/var/run/docker.sock -it'
+				}
+			}
         stage('Pull docker image') {
             steps {
                 sh 'docker pull kiwenlau/hadoop:1.0'
